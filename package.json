@@ -1,0 +1,19 @@
+{
+  "name": "heroku-discord-forwarder",
+  "version": "1.0.0",
+  "description": "Forward Heroku Deploy Hooks to Discord",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heyitsmdr/heroku-discord-forwarder.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/heyitsmdr/heroku-discord-forwarder/issues"
+  },
+  "homepage": "https://github.com/heyitsmdr/heroku-discord-forwarder#readme"
+}
