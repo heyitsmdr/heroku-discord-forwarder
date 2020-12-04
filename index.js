@@ -16,13 +16,10 @@ app.get('/', (req, res) => {
 })
 
 app.post('/', (req, res) => {
-  console.log(req.body);
-  console.log(req.body.app);
-  console.log(req.body.release);
   const app = req.body.app;
   const user = req.body.user;
   const release = req.body.release;
-  hook.send(`**${app}** has been promoted to **${release}** by **${user}**.`);
+  discordServer.send(`**${app}** has been promoted to **${release}** by **${user}**.`);
   res.send('Success.');
 
 });
