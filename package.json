@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/heyitsmdr/heroku-discord-forwarder/issues"
   },
-  "homepage": "https://github.com/heyitsmdr/heroku-discord-forwarder#readme"
+  "homepage": "https://github.com/heyitsmdr/heroku-discord-forwarder#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
