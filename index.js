@@ -10,7 +10,7 @@ const discordServer = new Discord.WebhookClient(
 );
 
 const githubMap = {};
-process.env.['GITHUB_MAP'].split(';').forEach(m => {
+process.env['GITHUB_MAP'].split(';').forEach(m => {
   const item = m.split(':');
   githubMap[item[0]] = item[1];
   console.log(`Registered GitHub mapping [${item[0]}] = ${item[1]}`);
