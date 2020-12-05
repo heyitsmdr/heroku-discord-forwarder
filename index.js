@@ -33,7 +33,7 @@ app.post('/', (req, res) => {
     commitBase = 'https://github.com/' + githubMap[app] + '/commit';
   }
   discordServer.send(
-    `**${app}** has been promoted to **${release}** ([${head}](${commitBase}/${head}))!`
+    `Build **${release}** ([${head}](${commitBase}/${head})) has been promoted to **${app}**.`
   );
   res.send('Success.');
 
