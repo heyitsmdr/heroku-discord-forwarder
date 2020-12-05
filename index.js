@@ -16,10 +16,12 @@ app.get('/', (req, res) => {
 })
 
 app.post('/', (req, res) => {
+  console.log(req.body);
   const app = req.body.app;
   const user = req.body.user;
   const release = req.body.release;
-  discordServer.send(`**${app}** has been promoted to **${release}** by **${user}**.`);
+  const head = req.body.head;
+  discordServer.send(`**${app}** has been promoted to **${release}** ([${head}](${process.env.GITHUB_COMMIT_BASE}/${head}))!`);
   res.send('Success.');
 
 });
