@@ -9,6 +9,13 @@ const discordServer = new Discord.WebhookClient(
   process.env.DISCORD_WEBHOOK_TOKEN,
 );
 
+const githubMap = {};
+process.env.['GITHUB_MAP'].split(';').forEach(m => {
+  const item = m.split(':');
+  githubMap[item[0]] = item[1];
+  console.log(`Registered GitHub mapping [${item[0]}] = ${item[1]}`);
+});
+
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get('/', (req, res) => {
@@ -21,7 +28,13 @@ app.post('/', (req, res) => {
   const user = req.body.user;
   const release = req.body.release;
   const head = req.body.head;
-  discordServer.send(`**${app}** has been promoted to **${release}** ([${head}](${process.env.GITHUB_COMMIT_BASE}/${head}))!`);
+  let commitBase = '';
+  if(githubMap.hasOwnProperty(app)) {
+    commitBase = 'https://github.com/' + githubMap[app] + '/commit';
+  }
+  discordServer.send(
+    `**${app}** has been promoted to **${release}** ([${head}](${commitBase}/${head}))!`
+  );
   res.send('Success.');
 
 });
